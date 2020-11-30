@@ -1,19 +1,19 @@
-def sums (s: str):
+def sums (s: str): # Задаем строку из цифр; возвращает Int-число: сумму цифр в строке из цифр
     dig = ['0','1','2','3','4','5','6','7','8','9']
     z = 0 
     for si in s:
         if si in dig:
             z = z + int(si) 
-    return z
+    return z  # возвращает Int-число: сумму цифр в строке из цифр
 
-def SumToOne (s: str):
+def SumToOne (s: str): # Задаем строку из цифр; возвращает цирфу сумму всех цифр пока не получится одна цифра.  
     R=10
     while R > 9:
         R = sums(s)
         s=str(R)
     return R    
         
-def ch1(s: str):    
+def ch1(s: str):  # Вспомогательная функция для даты  
     dig = ['1','2','3','4','5','6','7','8','9']
     if s[0] in dig:
         z = int(s[0])
@@ -21,7 +21,7 @@ def ch1(s: str):
         z = int(s[1]) 
     return z   
 
-def matrix (s: str):
+def matrix (s: str): # Задаем строку дата рождения + доп числа ; возвращает матрицу Пифагора
     dig = ['1','2','3','4','5','6','7','8','9']
     z = [0,0,0,0,0,0,0,0,0,0]
     for si in s:
@@ -32,7 +32,7 @@ def matrix (s: str):
                
     return z        
 
-def stroki (m: list):
+def stroki (m: list): # Считает столбци и строки в матрице Пифагора
     z = [0,0,0,0,0,0,0,0,0]
     z[1] = m[1]+m[4]+m[7] # цели
     z[2] = m[2]+m[5]+m[8] # семья             
@@ -44,12 +44,12 @@ def stroki (m: list):
     z[8] = m[1]+m[5]+m[9] # духовные
     return z        
 
-def det(m: list):
+def det(m: list): # Вычисление детерминанта и дельты
     Det = (m[1]*m[5]*m[9]+m[4]*m[8]*m[3]+m[2]*m[6]*m[7])-(m[3]*m[5]*m[7]+m[2]*m[4]*m[9]+m[6]*m[8]*m[1])
     delta = (m[1]*m[5]-m[2]*m[4])    
     return Det, delta        
 
-def detinfo (Det, delta : int):
+def detinfo (Det, delta : int): # Разьяснение детерминанта и дельты
     inf1 = ['0', 'наводящий порядок', 'копирующий', 'создающий свой мир', 'ищущий новое', 'революционер', 'бунтарь, разрушитель']
     inf = ['0', 'Наблюдение', 'Приспосабливание', 'Преодоление', 'Поиск', 'Преобразование', 'Создание']
     if Det == 0 and delta == 0: z = 1
@@ -61,7 +61,7 @@ def detinfo (Det, delta : int):
     else: z = 0
     return z, inf[z]  
 
-def all_numeric(d, m, g: str):
+def all_numeric(d, m, g: str): #Вводим дату рождения ввиде трех строк цифр получаем словарь нумерологического расчета
     s = d + m + g
     z1 = 0
     z2 = 0
@@ -107,8 +107,8 @@ def type_of_thinking (d, m, g: str, let: int):
         z.append(data)
     return z    
 
-def mod(x: int):
-    if x<0: x = -x
+def mod(x: int): # модуль числа
+    if x < 0: x = -x
     return x
 
 def analyzToF(DetLet: dict): 
