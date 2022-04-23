@@ -37,11 +37,14 @@ for i in [1,2,3]:
 v4 = ('_________________|'+ '\n')
 v5 = (str(strok[4])+'     '+str(strok[5])+'     '+str(strok[6])+'    '+str(strok[7])+'/'+str(strok[8])+ '\n\n')
 v6 = 'Число судьбы - '+str(DyN)+'   '+ defs.num_of_fate(DyN) + '\n'
-vv = v1 + v2 + v3 + v4 + v5 + v6 +'\n'
+v7 =''
+for i in [1,2,3,4,5,6]:
+    v7 =  v7 + f"{defs.info_s()[i]} - {str(strok[i])} \n"
+v7 = v7 + f"{defs.info_s()[7]}\{defs.info_s()[8]} - {str(strok[7])}\{str(strok[8])} \n"    
+vv = v1 + v2 + v6 +'\n'+ v3 + v4 + v5 + v7 + '\n'
 
 let = input('Лет - ')
 DetLet = defs.type_of_thinking(d,m,g,int(let))
-
 x = []
 y = []
 ToF = []
